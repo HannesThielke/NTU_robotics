@@ -3,9 +3,44 @@ title: Definitions
 nav: true
 ---
 
-# Reinforcement Learning
-<!---
 {% include mathjax.html %}
+
+# Reinforcement Learning
+<!-- drawn from https://blog.statsbot.co/introduction-to-imitation-learning-32334c3b1e7a -->
+A reinforcement learning framework can be described as a Markov Decision Process:
+
+$$ \langle S,A,R,T,\gamma \rangle $$
+
+where
+- S is the set of states
+- A is the set of actions
+- R is the reward function $$R(s,a):S \times A \rightarrow \mathbb{R}$$
+- T is the transit function $$ T(s,a,s')=p(s' \mid a,s) $$
+- $$\gamma$$ is the discounting factor that trades off the balance between the immediate reward and the future reward
+
+Policy function:
+
+$$\pi(s):S \rightarrow A$$
+
+Further links:
+
+- <a href="http://amunategui.github.io/reinforcement-learning/">Amunategui.github.io</a>
+- <a href="https://www.youtube.com/watch?v=nSxaG_Kjw_w">Video about Reinforcement Learning</a>&nbsp;
+
+# Imitation Learing
+<!-- drawn from one-shot-learning paper -->
+Imitation learning considers the problem of acquiring skills from observing demonstrations
+
+# Attention in Neural Networks
+<!-- drawn from http://akosiorek.github.io/ml/2017/10/14/visual-attention.html -->
+Informally, a neural attention mechanism equips a neural network with the ability to focus on a subset of its inputs (or features): it selects specific inputs.
+There are two main attention mechanisms:
+- Hard attention
+- Soft attention
+
+
+
+<!---
 {% include figure.html file="topless_configuration/topless_step_17.jpg" height="6.5cm" %}
 &nbsp;
 -->

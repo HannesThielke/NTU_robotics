@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Papers</title>
+  <meta name="description" content="Information about the current work on the OpenDrop Device">
+  <meta name="keywords" content="opendrop">
+  <meta name="author" content="Hannes Thielke">
+
+  <meta property="og:title" content="Papers" />
+  <meta property="og:description" content="Information about the current work on the OpenDrop Device
+" />
+  <meta property="og:site_name" content="OpenDrop" />
+  <meta property="og:url" content="http://localhost:4000/OpenDrop/3-papers.html" />
+  <meta property="og:locale" content="en_US" />
+  <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebPage","headline":"Papers","author":{"@type":"Person","name":"Hannes Thielke"},"description":"Information about the current work on the OpenDrop Device
+","url":"http://localhost:4000/OpenDrop/3-papers.html"}</script>
+
+  <link rel="stylesheet" href="http://localhost:4000/OpenDrop/css/main.css">
+
+  <!-- Google Analytics -->
+
+</head>
+
+
+  <body>
+    
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="http://localhost:4000/OpenDrop/">OpenDrop</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/1-definitions.html">Definitions</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/2-software.html">Software</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/3-papers.html">Papers</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+
+	<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>
+</head>
+
+<h1 id="paper-summary-one-shot-imitation-learning">Paper Summary: One-Shot Imitation Learning</h1>
+<p>Paper: <a href="files/DUAN-One-Shot Imitaion Learning.pdf">here</a></p>
+
+<h2 id="introduction">Introduction</h2>
+<p>When programming a robot to learn new tasks, you are facing two main problems:</p>
+<ul>
+  <li><strong>Dexterity</strong>:</li>
+  <li><strong>Communication</strong>:</li>
+</ul>
+
+<p>To overcome these problems, demonstrations should help the robot to abstract the task to a wide range of different starting points.</p>
+
+<p>The robot should learn how to solve a problem on its own without the use of feature engineering or or long training.</p>
+
+<p>Traditional Imitation Learning use policies that ar task-specific. The aim of the One-Shot Imitation Learning is to solve different tasks without having to train the robot for each specific task. The network should be able to solve unseen but related tasks by abstracting the knowledge from the trained task.</p>
+
+<h2 id="related-work">Related work</h2>
+
+<h2 id="one-shot-imitation-learning">One Shot Imitation Learning</h2>
+
+<h3 id="problem-formalization">Problem Formalization</h3>
+<p>Definitions:</p>
+<ul>
+  <li><script type="math/tex">\mathbb{T}</script>: Distribution of tasks</li>
+  <li><script type="math/tex">t \sim \mathbb{T}</script>: Individual task</li>
+  <li><script type="math/tex">\mathbb{D}(t)</script>: Distribution of demonstrations for the task <script type="math/tex">t</script></li>
+  <li><script type="math/tex">\pi_\theta (a \mid o,d)</script>: A policy</li>
+  <li><script type="math/tex">a</script>: Action</li>
+  <li><script type="math/tex">o</script>: Observation</li>
+  <li><script type="math/tex">d \sim \mathbb{D}(t); d = [(o_1, a_1),(o_2, a_2), ..., (o_T, a_T)]</script>: Demonstration</li>
+  <li><script type="math/tex">\theta</script>: Parameters of the policy</li>
+  <li><script type="math/tex">R_t(d)</script>: Scalar-valued evaluation fuction (e.g. a binary value indicating success)</li>
+</ul>
+
+<h3 id="block-stacking-tasks">Block Stacking Tasks</h3>
+
+<h3 id="algorithm">Algorithm</h3>
+<p>Behavioral Cloning and DAGGER are used to train the neural network policy</p>
+
+<h2 id="architecture">Architecture</h2>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-col-wrapper" >
+    <div class="footer-nav">
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/1-definitions.html">Definitions</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/2-software.html">Software</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/3-papers.html">Papers</a>
+          
+        
+          
+        
+          
+        
+    </div>
+    </div>
+      <h2 class="footer-heading"><a href="http://localhost:4000/OpenDrop/">OpenDrop</a> - <a href="https://creativecommons.org/licenses/by-sa/4.0/">cc-by-sa</a> <a href="https://github.com/pellkartoffel">Hannes Thielke</a> - 2018.</h2> 
+  </div>
+</footer>
+
+
+  </body>
+
+</html>
