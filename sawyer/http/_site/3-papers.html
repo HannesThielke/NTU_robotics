@@ -81,7 +81,7 @@
 </head>
 
 <h1 id="paper-summary-one-shot-imitation-learning">Paper Summary: One-Shot Imitation Learning</h1>
-<p>Paper: <a href="files/DUAN-One-Shot Imitaion Learning.pdf">here</a></p>
+<p>Paper: <a href="files/one-shot_imitaion_learning.pdf">here</a></p>
 
 <h2 id="introduction">Introduction</h2>
 <p>When programming a robot to learn new tasks, you are facing two main problems:</p>
@@ -151,7 +151,7 @@ The robot should learn how to solve a problem on its own without the use of feat
 
 <figure display:="" inline-block="">
     <img src="http://localhost:4000/NTU_robotics/images/network_architecture.png" alt="" style="height:8.5cm;" />
-    
+    <figcaption>Network architecture </figcaption>
   </figure>
 
 <p>The architecture that is used for One-Shot Imitation Learning consists of three modules:</p>
@@ -162,7 +162,15 @@ The robot should learn how to solve a problem on its own without the use of feat
 </ul>
 
 <h3 id="demonstration-network">Demonstration Network</h3>
-<p>To improve the performance of the policy for long-term demonstration sequences a random number of time steps is discarded during <strong>Temporal Dropout</strong>.</p>
+<p>To improve the performance of the policy for long-term demonstration sequences a random number of time steps is discarded during <strong>Temporal Dropout</strong>.
+In the next steps the demonstration goes through the process of <strong>Dilated Temporal Convolution</strong> and <strong>Neighbourhood Attention</strong>.
+The step of Neighborhood Attention allows every block to query other blocks in relation to itself.</p>
+
+<h3 id="context-network">Context Network</h3>
+<!-- TODO -->
+
+<h3 id="manipulation-network">Manipulation Network</h3>
+<p>The manipulation network computes the action of stacking the blocks using an MLP network.</p>
 
       </div>
     </main>

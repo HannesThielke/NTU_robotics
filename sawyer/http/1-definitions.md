@@ -38,6 +38,21 @@ There are two main attention mechanisms:
 - Hard attention
 - Soft attention
 
+# Convolutional Neural Networks
+helpful links:
+<a href="https://www.youtube.com/watch?v=FmpDIaiMIeA">Youtube - ConvNets</a>
+
+## Dilated Convolutions
+<!-- drawn from https://www.youtube.com/watch?v=cGkjH_c4SwI -->
+{% include figure.html file="one-shot_imitator_training.png" caption="Regular Convolution vs. Dilated Convolution" height="5.5cm" %}
+
+# Multilayer perceptron MLP
+vanilla neural network
+
+# Dataset Aggregation DAGGER
+The [DAGGER Algorithm](files/a_reduction_of_imitation_learning_and_structured_prediction.pdf) can be used to train a policy.
+
+
 
 <!---
 {% include figure.html file="topless_configuration/topless_step_17.jpg" height="6.5cm" %}

@@ -6,7 +6,7 @@ nav: true
 {% include mathjax.html %}
 
 # Paper Summary: One-Shot Imitation Learning
-Paper: [here](files/DUAN-One-Shot Imitaion Learning.pdf)
+Paper: [here](files/one-shot_imitaion_learning.pdf)
 
 ## Introduction
 When programming a robot to learn new tasks, you are facing two main problems:
@@ -48,7 +48,7 @@ Behavioral Cloning and DAGGER are used to train the neural network policy
 
 ## Architecture
 
-{% include figure.html file="network_architecture.png" height="8.5cm" %}
+{% include figure.html file="network_architecture.png" caption="Network architecture" height="8.5cm" %}
 
 The architecture that is used for One-Shot Imitation Learning consists of three modules:
 - Demonstration Network
@@ -57,3 +57,11 @@ The architecture that is used for One-Shot Imitation Learning consists of three 
 
 ### Demonstration Network
 To improve the performance of the policy for long-term demonstration sequences a random number of time steps is discarded during **Temporal Dropout**.
+In the next steps the demonstration goes through the process of **Dilated Temporal Convolution** and **Neighbourhood Attention**.
+The step of Neighborhood Attention allows every block to query other blocks in relation to itself.
+
+### Context Network
+<!-- TODO -->
+
+### Manipulation Network
+The manipulation network computes the action of stacking the blocks using an MLP network.
