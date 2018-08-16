@@ -29,7 +29,7 @@ Further links:
 
 # Imitation Learing
 <!-- drawn from one-shot-learning paper -->
-Imitation learning considers the problem of acquiring skills from observing demonstrations
+Imitation learning considers the problem of acquiring skills from observing demonstrations.
 
 # Attention in Neural Networks
 <!-- drawn from http://akosiorek.github.io/ml/2017/10/14/visual-attention.html -->
@@ -37,7 +37,6 @@ Informally, a neural attention mechanism equips a neural network with the abilit
 There are two main attention mechanisms:
 - Hard attention
 - Soft attention
-
 
 
 <!---

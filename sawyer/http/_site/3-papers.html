@@ -7,20 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Papers</title>
-  <meta name="description" content="Information about the current work on the OpenDrop Device">
-  <meta name="keywords" content="opendrop">
+  <meta name="description" content="Information about the current work on the One-Shot Imitation Learning for the &quot;Sawyer&quot; robotic arm">
+  <meta name="keywords" content="sawyer">
   <meta name="author" content="Hannes Thielke">
 
   <meta property="og:title" content="Papers" />
-  <meta property="og:description" content="Information about the current work on the OpenDrop Device
+  <meta property="og:description" content="Information about the current work on the One-Shot Imitation Learning for the "Sawyer" robotic arm
 " />
-  <meta property="og:site_name" content="OpenDrop" />
-  <meta property="og:url" content="http://localhost:4000/OpenDrop/3-papers.html" />
+  <meta property="og:site_name" content="One-Shot Imitation Learning" />
+  <meta property="og:url" content="http://localhost:4000/NTU_robotics/3-papers.html" />
   <meta property="og:locale" content="en_US" />
-  <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebPage","headline":"Papers","author":{"@type":"Person","name":"Hannes Thielke"},"description":"Information about the current work on the OpenDrop Device
-","url":"http://localhost:4000/OpenDrop/3-papers.html"}</script>
+  <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebPage","headline":"Papers","author":{"@type":"Person","name":"Hannes Thielke"},"description":"Information about the current work on the One-Shot Imitation Learning for the "Sawyer" robotic arm
+","url":"http://localhost:4000/NTU_robotics/3-papers.html"}</script>
 
-  <link rel="stylesheet" href="http://localhost:4000/OpenDrop/css/main.css">
+  <link rel="stylesheet" href="http://localhost:4000/NTU_robotics/css/main.css">
 
   <!-- Google Analytics -->
 
@@ -33,7 +33,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="http://localhost:4000/OpenDrop/">OpenDrop</a>
+    <a class="site-title" href="http://localhost:4000/NTU_robotics/">One-Shot Imitation Learning</a>
 
     <nav class="site-nav">
       <span class="menu-icon">
@@ -47,15 +47,15 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="http://localhost:4000/OpenDrop/1-definitions.html">Definitions</a>
+          <a class="page-link" href="http://localhost:4000/NTU_robotics/1-definitions.html">Definitions</a>
           
         
           
-          <a class="page-link" href="http://localhost:4000/OpenDrop/2-software.html">Software</a>
+          <a class="page-link" href="http://localhost:4000/NTU_robotics/2-software.html">Software</a>
           
         
           
-          <a class="page-link" href="http://localhost:4000/OpenDrop/3-papers.html">Papers</a>
+          <a class="page-link" href="http://localhost:4000/NTU_robotics/3-papers.html">Papers</a>
           
         
           
@@ -86,33 +86,61 @@
 <h2 id="introduction">Introduction</h2>
 <p>When programming a robot to learn new tasks, you are facing two main problems:</p>
 <ul>
-  <li><strong>Dexterity</strong>:</li>
-  <li><strong>Communication</strong>:</li>
+  <li><strong>Dexterity</strong>: The robot has to learn how to complete difficult tasks in right way</li>
+  <li><strong>Communication</strong>: When telling the robot what to do, it has to understand the general meaning of the instruction to adapt it to a broader set of tasks</li>
 </ul>
 
-<p>To overcome these problems, demonstrations should help the robot to abstract the task to a wide range of different starting points.</p>
+<p>To overcome these problems, demonstrations should help the robot to abstract the task to a wide range of different starting points.
+Unlike traditional Imitation Learning techniques the aim of the One-Shot Imitation Learning is to train one policy to solve unseen tasks that are similar to the demonstrated sample task. 
+The robot should learn how to solve a problem on its own without the use of feature engineering or or long training.</p>
 
-<p>The robot should learn how to solve a problem on its own without the use of feature engineering or or long training.</p>
-
-<p>Traditional Imitation Learning use policies that ar task-specific. The aim of the One-Shot Imitation Learning is to solve different tasks without having to train the robot for each specific task. The network should be able to solve unseen but related tasks by abstracting the knowledge from the trained task.</p>
-
-<h2 id="related-work">Related work</h2>
+<!-- ## Related work -->
 
 <h2 id="one-shot-imitation-learning">One Shot Imitation Learning</h2>
 
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/NTU_robotics/images/one-shot_imitation_learning.png" alt="" style="height:5.5cm;" />
+    <figcaption>One-Shot Imitation Learning </figcaption>
+  </figure>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/NTU_robotics/images/one-shot_imitator_training.png" alt="" style="height:5.5cm;" />
+    <figcaption>Training the One-Shot Imitator </figcaption>
+  </figure>
+
 <h3 id="problem-formalization">Problem Formalization</h3>
-<p>Definitions:</p>
-<ul>
-  <li><script type="math/tex">\mathbb{T}</script>: Distribution of tasks</li>
-  <li><script type="math/tex">t \sim \mathbb{T}</script>: Individual task</li>
-  <li><script type="math/tex">\mathbb{D}(t)</script>: Distribution of demonstrations for the task <script type="math/tex">t</script></li>
-  <li><script type="math/tex">\pi_\theta (a \mid o,d)</script>: A policy</li>
-  <li><script type="math/tex">a</script>: Action</li>
-  <li><script type="math/tex">o</script>: Observation</li>
-  <li><script type="math/tex">d \sim \mathbb{D}(t); d = [(o_1, a_1),(o_2, a_2), ..., (o_T, a_T)]</script>: Demonstration</li>
-  <li><script type="math/tex">\theta</script>: Parameters of the policy</li>
-  <li><script type="math/tex">R_t(d)</script>: Scalar-valued evaluation fuction (e.g. a binary value indicating success)</li>
-</ul>
+<center><figure>
+<style type="text/css">
+	table.tableizer-table {
+		font-size: 12px;
+		border: 1px solid #CCC; 
+		font-family: Arial, Helvetica, sans-serif;
+	} 
+	.tableizer-table td {
+		padding: 4px;
+		margin: 3px;
+		border: 1px solid #CCC;
+	}
+	.tableizer-table th {
+		background-color: #104E8B; 
+		color: #FFF;
+		font-weight: bold;
+	}
+</style>
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th>Variable</th><th>Description</th></tr></thead><tbody>
+ <tr><td>$$ \mathbb{T} $$</td><td>Distribution of tasks</td></tr>
+ <tr><td>$$ t \sim \mathbb{T} $$</td><td>Individual task</td></tr>
+ <tr><td>$$ \mathbb{D}(t) $$</td><td>Distribution of demonstrations for the task t</td></tr>
+ <tr><td>$$ \pi_\theta (a \mid o,d) $$</td><td>A policy</td></tr>
+ <tr><td>$$ a $$</td><td>Action</td></tr>
+ <tr><td>$$ o $$</td><td>Observation</td></tr>
+ <tr><td>$$ d \sim \mathbb{D}(t) $$</td><td>Demonstration $$ d = [(o_1, a_1),(o_2, a_2), ..., (o_T, a_T)]$$</td></tr>
+ <tr><td>$$ \theta $$</td><td>Parameters of the policy</td></tr>
+ <tr><td>$$ R_t(d) $$</td><td>Scalar-valued evaluation fuction (e.g. a binary value indicating success)</td></tr>
+</tbody></table>
+</figure></center>
+<figcaption>Variables</figcaption>
 
 <h3 id="block-stacking-tasks">Block Stacking Tasks</h3>
 
@@ -120,6 +148,21 @@
 <p>Behavioral Cloning and DAGGER are used to train the neural network policy</p>
 
 <h2 id="architecture">Architecture</h2>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/NTU_robotics/images/network_architecture.png" alt="" style="height:8.5cm;" />
+    
+  </figure>
+
+<p>The architecture that is used for One-Shot Imitation Learning consists of three modules:</p>
+<ul>
+  <li>Demonstration Network</li>
+  <li>Context Network</li>
+  <li>Manipulation Network</li>
+</ul>
+
+<h3 id="demonstration-network">Demonstration Network</h3>
+<p>To improve the performance of the policy for long-term demonstration sequences a random number of time steps is discarded during <strong>Temporal Dropout</strong>.</p>
 
       </div>
     </main>
@@ -130,15 +173,15 @@
     <div class="footer-nav">
         
           
-          <a class="page-link" href="http://localhost:4000/OpenDrop/1-definitions.html">Definitions</a>
+          <a class="page-link" href="http://localhost:4000/NTU_robotics/1-definitions.html">Definitions</a>
           
         
           
-          <a class="page-link" href="http://localhost:4000/OpenDrop/2-software.html">Software</a>
+          <a class="page-link" href="http://localhost:4000/NTU_robotics/2-software.html">Software</a>
           
         
           
-          <a class="page-link" href="http://localhost:4000/OpenDrop/3-papers.html">Papers</a>
+          <a class="page-link" href="http://localhost:4000/NTU_robotics/3-papers.html">Papers</a>
           
         
           
@@ -147,7 +190,7 @@
         
     </div>
     </div>
-      <h2 class="footer-heading"><a href="http://localhost:4000/OpenDrop/">OpenDrop</a> - <a href="https://creativecommons.org/licenses/by-sa/4.0/">cc-by-sa</a> <a href="https://github.com/pellkartoffel">Hannes Thielke</a> - 2018.</h2> 
+      <h2 class="footer-heading"><a href="http://localhost:4000/NTU_robotics/">One-Shot Imitation Learning</a> - <a href="https://creativecommons.org/licenses/by-sa/4.0/">cc-by-sa</a> <a href="https://github.com/HannesThielke">Hannes Thielke</a> - 2018.</h2> 
   </div>
 </footer>
 
