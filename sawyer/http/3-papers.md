@@ -65,3 +65,14 @@ The step of Neighborhood Attention allows every block to query other blocks in r
 
 ### Manipulation Network
 The manipulation network computes the action of stacking the blocks using an MLP network.
+
+# Paper Summary: Zero-Shot Visual Imitation
+Zero-Shot Visual Imitation in this paper is achieved by the following steps.
+The training of an agent is done by letting the agent explore the environment without any expert supervision.
+All visited states during this exploration are labeled as goals and all actions are labeled as targets.
+A "forward consistency loss" function makes sure that the final goal is more important than the steps towards this goal.
+In this way it is possible to have different ways to the same solution.
+
+## Learning To Imitate Without Expert Supervision
+The data gathered during exploration is used to learn a deep network "goal-conditioned skill policy GSP".
+To imitate a given task, the GSP is fed with the image data from the demonstration

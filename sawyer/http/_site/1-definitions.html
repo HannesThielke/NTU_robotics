@@ -82,6 +82,15 @@
 
 <h1 id="reinforcement-learning">Reinforcement Learning</h1>
 <!-- drawn from https://blog.statsbot.co/introduction-to-imitation-learning-32334c3b1e7a -->
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/NTU_robotics/images/reinforcement_learning.png" alt="" style="height:7.5cm;" />
+    <figcaption>Reinforcement Learning  <a href="https://blog.statsbot.co/introduction-to-imitation-learning-32334c3b1e7a">(source)</a> </figcaption>
+  </figure>
+
+<p>In a Reinforcement Learning process the agent gets a reward (positive or negative) for every action he does.
+During the training the agent learns how to maximise the reward.</p>
+
 <p>A reinforcement learning framework can be described as a Markov Decision Process:</p>
 
 <script type="math/tex; mode=display">\langle S,A,R,T,\gamma \rangle</script>
@@ -106,9 +115,18 @@
   <li><a href="https://www.youtube.com/watch?v=nSxaG_Kjw_w">Video about Reinforcement Learning</a> </li>
 </ul>
 
-<h1 id="imitation-learing">Imitation Learing</h1>
-<!-- drawn from one-shot-learning paper -->
-<p>Imitation learning considers the problem of acquiring skills from observing demonstrations.</p>
+<h1 id="imitation-learing-or-learning-by-demonstration-programming-by-example">Imitation Learing (or learning by demonstration, programming by example)</h1>
+<p>Imitation Learning describes the process of training an agent to mimic a certain behaviour.
+The agent tries to learn new skills by observing demonstrations of an expert.</p>
+
+<p>The data collected during demonstration is saved in the form of observation-action pairs. <!-- drawn from paper ZERO-SHOT VISUAL IMITATION --></p>
+
+<p>It is hereby assumed that there is an expert available from whom the agent can learn from.
+This means that the agents skills are based on training the experts behaviour and cannot recover from failures in case the demonstration data had imperfections.</p>
+
+<h2 id="policy">Policy</h2>
+<p>The goal of Imitation Learning is to find a function that maps the current state to the action.
+This function is referred to as <strong>policy</strong>. The success of a policy is measured by means of the total reward that the policy can achieve.</p>
 
 <h1 id="attention-in-neural-networks">Attention in Neural Networks</h1>
 <!-- drawn from http://akosiorek.github.io/ml/2017/10/14/visual-attention.html -->
@@ -122,6 +140,20 @@ There are two main attention mechanisms:</p>
 <h1 id="convolutional-neural-networks">Convolutional Neural Networks</h1>
 <p>helpful links:
 <a href="https://www.youtube.com/watch?v=FmpDIaiMIeA">Youtube - ConvNets</a></p>
+
+<h2 id="softmax-function">Softmax Function</h2>
+<!-- drawn from https://en.wikipedia.org/wiki/Softmax_function -->
+<p>The softmax function is a generalization of the logistic function that “squashes” a K-dimensional vector <script type="math/tex">\mathbf {z}</script> of arbitrary real values to a K-dimensional vector <script type="math/tex">\sigma (\mathbf {z} )</script> of real values, where each entry is in the range <script type="math/tex">(0, 1]</script>, and all the entries add up to 1. The function is given by</p>
+
+<script type="math/tex; mode=display">\sigma (\mathbf {z} )_{j}={\frac {e^{z_{j}}}{\sum _{k=1}^{K}e^{z_{k}}}}</script>
+
+<p>In a neural network this is used to squash the output values that indicate the probability into the range of 0 to 1 in a way that they add up to 1. This will make it easier to illustrate the probability of the outcome.</p>
+
+<h2 id="cross-entropy-function">Cross-Entropy Function</h2>
+<p><script type="math/tex">H(p,q)=-\sum _{x}p(x)\,\log q(x)</script></p>
+
+<p>The cross-entropy function is a error function in a neural network that indicates how good the results of the network were.
+Other used error functions are e.g. the classification error and the mean squared error.</p>
 
 <h2 id="dilated-convolutions">Dilated Convolutions</h2>
 <!-- drawn from https://www.youtube.com/watch?v=cGkjH_c4SwI -->

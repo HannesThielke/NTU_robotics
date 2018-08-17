@@ -7,6 +7,11 @@ nav: true
 
 # Reinforcement Learning
 <!-- drawn from https://blog.statsbot.co/introduction-to-imitation-learning-32334c3b1e7a -->
+{% include figure.html file="reinforcement_learning.png" caption="Reinforcement Learning" src="https://blog.statsbot.co/introduction-to-imitation-learning-32334c3b1e7a" height="7.5cm" %}
+
+In a Reinforcement Learning process the agent gets a reward (positive or negative) for every action he does.
+During the training the agent learns how to maximise the reward.
+
 A reinforcement learning framework can be described as a Markov Decision Process:
 
 $$ \langle S,A,R,T,\gamma \rangle $$
@@ -27,9 +32,18 @@ Further links:
 - <a href="http://amunategui.github.io/reinforcement-learning/">Amunategui.github.io</a>
 - <a href="https://www.youtube.com/watch?v=nSxaG_Kjw_w">Video about Reinforcement Learning</a>&nbsp;
 
-# Imitation Learing
-<!-- drawn from one-shot-learning paper -->
-Imitation learning considers the problem of acquiring skills from observing demonstrations.
+# Imitation Learing (or learning by demonstration, programming by example)
+Imitation Learning describes the process of training an agent to mimic a certain behaviour.
+The agent tries to learn new skills by observing demonstrations of an expert.
+
+The data collected during demonstration is saved in the form of observation-action pairs. <!-- drawn from paper ZERO-SHOT VISUAL IMITATION -->
+
+It is hereby assumed that there is an expert available from whom the agent can learn from.
+This means that the agents skills are based on training the experts behaviour and cannot recover from failures in case the demonstration data had imperfections.
+
+## Policy
+The goal of Imitation Learning is to find a function that maps the current state to the action.
+This function is referred to as **policy**. The success of a policy is measured by means of the total reward that the policy can achieve.
 
 # Attention in Neural Networks
 <!-- drawn from http://akosiorek.github.io/ml/2017/10/14/visual-attention.html -->
@@ -41,6 +55,20 @@ There are two main attention mechanisms:
 # Convolutional Neural Networks
 helpful links:
 <a href="https://www.youtube.com/watch?v=FmpDIaiMIeA">Youtube - ConvNets</a>
+
+## Softmax Function
+<!-- drawn from https://en.wikipedia.org/wiki/Softmax_function -->
+The softmax function is a generalization of the logistic function that "squashes" a K-dimensional vector $$ \mathbf {z} $$ of arbitrary real values to a K-dimensional vector $$ \sigma (\mathbf {z} ) $$ of real values, where each entry is in the range $$ (0, 1] $$, and all the entries add up to 1. The function is given by
+
+$$ \sigma (\mathbf {z} )_{j}={\frac {e^{z_{j}}}{\sum _{k=1}^{K}e^{z_{k}}}} $$
+
+In a neural network this is used to squash the output values that indicate the probability into the range of 0 to 1 in a way that they add up to 1. This will make it easier to illustrate the probability of the outcome.
+
+## Cross-Entropy Function
+$$ H(p,q)=-\sum _{x}p(x)\,\log q(x) $$
+
+The cross-entropy function is a error function in a neural network that indicates how good the results of the network were.
+Other used error functions are e.g. the classification error and the mean squared error.
 
 ## Dilated Convolutions
 <!-- drawn from https://www.youtube.com/watch?v=cGkjH_c4SwI -->
