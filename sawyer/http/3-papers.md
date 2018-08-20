@@ -73,6 +73,27 @@ All visited states during this exploration are labeled as goals and all actions 
 A "forward consistency loss" function makes sure that the final goal is more important than the steps towards this goal.
 In this way it is possible to have different ways to the same solution.
 
-## Learning To Imitate Without Expert Supervision
+## Learning to Imitate Without Expert Supervision
 The data gathered during exploration is used to learn a deep network "goal-conditioned skill policy GSP".
 To imitate a given task, the GSP is fed with the image data from the demonstration
+
+### Learning the Goal-conditioned Skill Policy
+
+### Forward Consistency Loss
+
+### Goal Recognizer
+
+### Ablations and Baselines
+
+## Experiments
+The model is tested in three different testing environments:
+- Rope manipulation using a Baxter robot
+- Navigation of a TurtleBot robot
+- Navigation in a 3D simulation
+
+### Rope Manipulation
+During the exploration process, the Baxter robot picks and places the rope in a random order to collect interaction pairs.
+
+### Navigation in Indoor Office Environments
+
+### 3D Navigation in VizDoom
