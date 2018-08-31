@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/17-day_deeplearning_course.iml" filepath="$PROJECT_DIR$/.idea/17-day_deeplearning_course.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day3-document-scanner/.idea/document-scanner.iml" filepath="$PROJECT_DIR$/day3-document-scanner/.idea/document-scanner.iml" />
       <module fileurl="file://$PROJECT_DIR$/../machinelearningmastery/.idea/machinelearningmastery.iml" filepath="$PROJECT_DIR$/../machinelearningmastery/.idea/machinelearningmastery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../mil/.idea/mil.iml" filepath="$PROJECT_DIR$/../../../mil/.idea/mil.iml" />
     </modules>
   </component>
 </project>
